@@ -1,0 +1,13 @@
+{
+  "name": "go-gin-fly-io-starter-sample-data",
+  "version": "0.1.0",
+  "description": "",
+  "main": "load.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fauna": "^0.9.4"
+  },
+  "type": "module"
+}

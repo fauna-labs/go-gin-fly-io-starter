@@ -1,0 +1,6 @@
+/scripts
+/docs
+.env
+.env.example
+fly.toml
+.git
