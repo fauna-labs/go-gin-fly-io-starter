@@ -6,7 +6,7 @@ This repository contains unofficial patterns, sample code, or tools to help deve
 
 *[Fauna](https://fauna.com/) is a distributed relational database with a document data model. Delivered as an API, Fauna is automatically configured – out of the box – as a three replica database with active-active write capability, making it a powerful complement to [Fly.io](https://fly.io/) in serving low latency reads and writes for dynamic global applications.*
 
-This starter kit provides a sample Fauna integration with Go/Gin framework, and packaged to run on Fly.io. If you don't plan to deploy on Fly, this sample should still work as a great Go/Gin example.
+This starter kit provides a sample Fauna integration with Go/Gin framework, and packaged to run on Fly.io. Whether you plan to deploy on Fly or not, this sample should nevertheless provide a great Go/Gin + Fauna example.
  
 ---
 
@@ -25,7 +25,13 @@ This starter kit provides a sample Fauna integration with Go/Gin framework, and 
 
 ## Test locally
 
-__First, let's load some sample data (**Note**: This will be using the Fauna key from above, which should now be set in the `.env` file) so that we can do a little manual test__. There is a node script in the `/scripts` folder for this. Run:
+Source `.env`
+
+```
+source .env
+```
+
+__Let's load some sample data so that we can do a little manual test__. There is a node script in the `/scripts` folder for this. Run:
 ```
 npm install --prefix ./scripts && node ./scripts/sample/load.js
 ```
