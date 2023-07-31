@@ -19,7 +19,7 @@ func main() {
 	client := fauna.NewClient(os.Getenv("FAUNA_SECRET_KEY"), fauna.DefaultTimeouts())
 
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"greeting1": "Hello go-gin-fly-io-starter"})
+		c.JSON(http.StatusOK, gin.H{"greeting": "Hello go-gin-fly-io-starter"})
 	})
 
 	r.GET("/read", func(c *gin.Context) {
