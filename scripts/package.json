@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "dependencies": {
-    "fauna": "^0.9.4"
-  },
-  "type": "module"
+    "fauna": "^1.3.1"
+  }
 }

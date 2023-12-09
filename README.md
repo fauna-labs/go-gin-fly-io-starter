@@ -54,38 +54,39 @@ This should perform a read from the Fauna database you created and populated wit
 
 ## Deploy to Fly.io
 
-To launch the app on fly, run `flyctl launch` in the root directory of this project.
-You will be prompted for a few things:
+To launch the app on fly, run `fly launch --no-deploy` in the root directory of this project.
+You will be prompted for a couple things:
 
 * `? Would you like to copy its configuration to the new app? (y/N)` **Choose y (Yes)**
-* `? Choose an app name (leaving blank will default to 'go-gin-fauna-starter')` **⚠️ Give it a new app name**
-* Choose an organization
-  (You would be defaulted to the "personal" organization if it is the only option)
-* Would you like to set up a Postgresql database now? **Choose N (No). We're using Fauna as our database.**
-* Would you like to set up an Upstash Redis database now? **Choose N (No)**
-* Would you like to deploy now? **Choose N (No). Don't deploy yet, we need to first set our secret key (see below)**
+* `? Do you want to tweak these settings before proceeding? (y/N)` **Choose N (No)**
 
 ```bash
-% flyctl launch
-...
+% fly launch --no-deploy
 An existing fly.toml file was found for app go-gin-fauna-starter
 ? Would you like to copy its configuration to the new app? Yes
 Using build strategies '[a buildpack]'. Remove [build] from fly.toml to force a rescan
-? Choose an app name (leaving blank will default to 'go-gin-fauna-starter') <a-new-app-name>
-automatically selected personal organization: 'your-personal-organization'
-App will use 'sjc' region as primary
+Creating app in <folder>/go-gin-fly-io-starter
+We're about to launch your app on Fly.io. Here's what you're getting:
 
-Created app '<a-new-app-name>' in organization 'personal'
-Admin URL: https://fly.io/apps/<a-new-app-name>
-Hostname: <a-new-app-name>.fly.dev
-? Would you like to set up a Postgresql database now? No
-? Would you like to set up an Upstash Redis database now? No
+Organization: <your org name>           (fly launch defaults to the personal org)
+Name:         go-gin-fauna-starter      (from your fly.toml)
+Region:       San Jose, California (US) (from your fly.toml)
+App Machines: shared-cpu-1x, 1GB RAM    (most apps need about 1GB of RAM)
+Postgres:     <none>                    (not requested)
+Redis:        <none>                    (not requested)
+
+? Do you want to tweak these settings before proceeding? No
+Created app 'go-gin-fauna-starter' in organization 'personal'
+Admin URL: https://fly.io/apps/go-gin-fauna-starter
+Hostname: go-gin-fauna-starter.fly.dev
 Wrote config file fly.toml
-? Would you like to deploy now? No
-...
+Validating <folder>/go-gin-fly-io-starter/fly.toml
+Platform: machines
+✓ Configuration is valid
+Your app is ready! Deploy with `flyctl deploy`
 ```
 
-Environment variables are not uploaded. Before deploying, you should set the Secrets value for FAUNA_SECRET_KEY: 
+Before deploying, you must set the Secrets value for FAUNA_SECRET_KEY: 
 ```
 fly secrets set FAUNA_SECRET_KEY="<fauna secret key>"
 ```
@@ -102,7 +103,7 @@ fly status
 
 Browse to your newly deployed application with the `fly open` command.
 ```
-% flyctl open
+% fly open
 
 Opening https://<a-new-app-name>.fly.dev
 ```
